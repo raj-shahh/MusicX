@@ -49,7 +49,7 @@ const DetailsHeader = ({ artist = null, songDetails = null }) => {
       </div>
 
       {
-        (artist) ? <p>NO OPTIONS</p> : <PlayPause className="p-2" isPlaying={isPlaying} activeSong={activeSong} song={songDetails} handlePlay={() => handlePlayClick(songDetails, 1)} handlePause={() => handlePauseClick()} />
+        (artist) ? <p className="hidden">NO OPTIONS</p> : <PlayPause className="p-2" isPlaying={isPlaying} activeSong={activeSong} song={songDetails} handlePlay={() => handlePlayClick(songDetails, 1)} handlePause={() => handlePauseClick()} />
 
       }
     </div>
