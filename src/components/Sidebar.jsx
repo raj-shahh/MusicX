@@ -34,7 +34,7 @@ const Sidebar = () => {
       }
       </div>
 
-      <div className={`bg-[#171717] opacity-90 absolute top-0 h-full w-1/2 z-10 md:hidden ${mobileMenuOpen ? 'left-0' : 'hidden'}`}>
+      <div className={`bg-[#171717] opacity-95 absolute top-0 h-full w-1/2 z-10 md:hidden ${mobileMenuOpen ? 'left-0' : 'hidden'}`}>
         <img src={logo} alt="logo" className="w-40 mx-auto shadow-md" />
         <SideBarLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>

@@ -9,12 +9,25 @@ const TopPlayCard = ({ song, i, isPlaying, activeSong, handlePlayClick, handlePa
     <div className="flex-1 flex flex-row items-center justify-between">
       <img src={song?.images?.coverart} alt={song.title} className="w-[60px] rounded-lg" />
       <div className="flex-1 flex flex-col justify-between mx-3">
-        <Link to={`/songs/${song?.key}`} className="font-bold hover:text-cyan-400">
-          {song.title}
-        </Link>
-        <Link to={`/artists/${song?.artists?.[0].adamid}`} className="text-gray-300 text-sm hover:text-cyan-400">
-          {song?.subtitle}
-        </Link>
+        { (!(song?.key === undefined))
+          ? (
+            <Link to={`/songs/${song?.key}`} className="font-bold">
+              {song.title}
+            </Link>
+          ) : (
+            <div className="font-bold">
+              {song.title}
+            </div>
+          )}
+        { (!(song?.artists[0]?.adamid === undefined)) ? (
+          <Link to={`/artists/${song?.artists?.[0]?.adamid}`} className="text-gray-300 text-sm hover:text-cyan-400">
+            {song?.subtitle}
+          </Link>
+        ) : (
+          <div className="text-gray-300 text-sm hover:text-cyan-400">
+            {song?.subtitle}
+          </div>
+        )}
       </div>
     </div>
 
@@ -38,7 +51,7 @@ const RelatedSongs = ({ similarSongs }) => {
 
   return (
     (!(data === undefined)) ? (data.map((song, i) => (
-      <TopPlayCard key={song.key} song={song} i={i} isPlaying={isPlaying} activeSong={activeSong} handlePlayClick={handlePlayClick} handlePauseClick={handlePauseClick} />
+      <TopPlayCard key={i} song={song} i={i} isPlaying={isPlaying} activeSong={activeSong} handlePlayClick={handlePlayClick} handlePauseClick={handlePauseClick} />
     ))) : <p className="text-white">Sorry! No Similar Songs Found</p>
   );
 };
