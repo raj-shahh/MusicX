@@ -18,7 +18,7 @@ const TopPlayCard = ({ song, i, isPlaying, activeSong, handlePlayClick, handlePa
       <img src={song.images.coverart} className="w-[60px] rounded-lg" />
       <div className="flex-1 flex flex-col justify-between mx-3">
         <Link to={`/songs/${song?.key}`} className="font-bold hover:text-cyan-400">
-          {song.title}
+          {song?.title?.split('[')[0]}
         </Link>
         <Link to={`/artists/${song?.artists[0].adamid}`} className="text-gray-300 text-sm hover:text-cyan-400">
           {song?.subtitle}
